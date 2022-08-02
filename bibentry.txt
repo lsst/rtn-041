@@ -1,0 +1,9 @@
+% bibentry template for lsst.bib in https://github.com/lsst/lsst-texmf/blob/main/texmf/bibtex/bib/lsst.bib
+
+@DocuShare{RTN-041,
+   author = { William O'Mullane },
+    title = {Data Preview 0.2 and Operations rehearsal for DRP.},
+     year = 2022,
+    month = Aug,
+   handle = {RTN-041},
+      url = {https://rtn-041.lsst.io } }
