@@ -1,3 +1,41 @@
 \section{Management and communication} \label{sec:management}
 
 Here we cover the management structures in place for DP0.2 this includes the groups and meetings like the change control for the pipeline version.
+
+\subsection{Change Control}
+
+Data Preview 0.2 used v23.0.x of the LSST Science Pipelines Software and that was derived from a weekly release from September 2021 (\texttt{w.2022.40}).
+We decided to group processing into distinct ``steps'' that allowed updates to the software used in later stages of processing to be worked on whilst earlier steps were executing.
+
+We continued to want to use the v23 release for all data processing and that required that we had a process to determine which patches would need to be back-ported to the release branch as needed before each step could begin.
+
+The Data Management Change Control Board (DMCCB) delegated authority to a new Campaign Management Board that had the following membership:
+
+\begin{itemize}
+\item Yusra AlSayyad, representing the pipelines team.
+\item Leanne Guy and Colin Slater, representing the verification and validation team.
+\item Hsin-Fang Chiang, representing the execution team.
+\item Tim Jenness, representing the data processing architecture team.
+\end{itemize}
+
+The Board met weekly on Tuesday at 8:30am Pacific Time and also had a Slack channel to discuss any issues that would come up between meetings.
+Minutes for the meetings were recorded on Confluence.
+
+The process for deciding on a back-port is as follows:
+
+\begin{enumerate}
+
+\item A request is made that a ticket should be applied to the release branch by applying a \texttt{backport-v23} tag to the Jira ticket.
+\item The board would then discuss the relative merits of the back-port and if approved a \texttt{backport-approved} label would be added.
+\item The work on the back-port would then be scheduled by the relevant T/CAM following instructions in the developer guide.\footnote{\url{https://developer.lsst.io/work/backports.html}}
+\item Once the code is on the \texttt{v23.0.x} branch a \texttt{backport-done} label would be applied.
+
+\end{enumerate}
+
+A Jira query was constructed to find all the tickets and track their porting status.
+There were 64 tickets with back-port requests and 61 of those were approved and applied to the release branch.
+For the three that were not approved, one is for a clean-up to the database schema that was discovered after we had finalized the processing; another was for an improvement to the graph-building efficiency but would have involved a very difficult back-port because there had been a package reorganization since the release branch had been created; and the final ticket was an improvement to the matched catalog filtering that was determined to be non-critical.
+
+Once all the necessary back-porting has been completed for a specific step, the release manager would be instructed to start the process of creating a new patch release of the Science Pipelines.
+During DP0.2 we made two additional formal releases of the version 23 software: v23.0.1 and v23.0.2.
+This allowed us to state which release was used for each step, although we ensured that changes in later patch releases would not affect the processing from steps that were already completed using older patch releases.
