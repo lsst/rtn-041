@@ -2,6 +2,44 @@
 
 Here we cover the management structures in place for DP0.2 this includes the groups and meetings like the change control for the pipeline version.
 
+\subsection{Oversight}
+
+The Data Production Leadership Team (DPLT) consisted of representatives from all the teams involved in the data preview process as well as the data facilities.
+The DPLT met fortnightly to discuss any issues and minutes were recorded on Confluence.
+
+The membership of the DPLT was:
+
+\begin{itemize}
+\item Wil O'Mullane
+\item Bob Blum
+\item Leanne Guy
+\item Frossie Economou
+\item Yusra Alsayyad
+\item Hsin-Fang Chiang
+\item Michelle Butler (NCSA)
+\item Richard Dubois (USDF)
+\item George Beckett (UKDF)
+\item Fabio Hernandez (FrDF)
+\end{itemize}
+
+\subsection{Coordination}
+
+During the data preview 0.2 process there was a regular coordination meeting every two weeks (out of phase with the DPLT meeting) with minutes recorded on Confluence.
+This meeting was attended by all the people directly involved in the data preview process: management, the processing infrastructure team, the science platform team, the execution team, the pipelines team, the verification and validation team, and the community engagement team.
+
+This allowed the different teams to report on status and bring up any issues that needed to be addressed and made everyone aware of progress.
+Data Preview 0.1 had been released during this period and this allowed us to also include feedback from the Community Engagement Team as they interacted with the existing delegates and prepared updated tutorials for DP0.2.
+
+Data Facility representatives were present at this meeting even though all the processing was being done on the Interim Data Facility at Google \citep{2021arXiv211115030O}.
+
+\subsection{Work Management}
+
+We used Jira to track work related to the Data Preview.
+Epics and milestones were created in the \texttt{PREOPS} Jira Project.
+Story tickets were then attached to each epic but in order to properly integrate the work into existing Data Management processes, any tickets that would result in code changes in pipelines software or middleware packages were created in the Data Management Jira project.
+
+The status of the epics and how they related to the relevant milestones was monitored as part of the weekly coordination or DPLT meetings.
+
 \subsection{Change Control}
 
 Data Preview 0.2 used v23.0.x of the LSST Science Pipelines Software and that was derived from a weekly release from September 2021 (\texttt{w.2022.40}).
@@ -9,7 +47,7 @@ We decided to group processing into distinct ``steps'' that allowed updates to t
 
 We continued to want to use the v23 release for all data processing and that required that we had a process to determine which patches would need to be back-ported to the release branch as needed before each step could begin.
 
-The Data Management Change Control Board (DMCCB) delegated authority to a new Campaign Management Board that had the following membership:
+The Data Management Change Control Board (DMCCB) and DPLT delegated authority to a new Campaign Management Board that had the following membership:
 
 \begin{itemize}
 \item Yusra AlSayyad, representing the pipelines team.
