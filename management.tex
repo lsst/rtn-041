@@ -48,7 +48,7 @@ We decided to group processing into distinct ``steps'' that allowed updates to t
 
 We continued to want to use the v23 release for all data processing and that required that we had a process to determine which patches would need to be back-ported to the release branch as needed before each step could begin.
 
-The Data Management Change Control Board (DMCCB) and DPLT delegated authority to a new Campaign Management Board that had the following membership:
+The Data Management Change Control Board (DMCCB) and DPLT delegated authority to a new Data Release Steering Committee that had the following membership:
 
 \begin{itemize}
 \item Yusra AlSayyad, representing the pipelines team.
@@ -72,8 +72,9 @@ The process for deciding on a back-port is as follows:
 \end{enumerate}
 
 A Jira query was constructed to find all the tickets and track their porting status.
-There were 64 tickets with back-port requests and 61 of those were approved and applied to the release branch.
-For the three that were not approved, one is for a clean-up to the database schema that was discovered after we had finalized the processing; another was for an improvement to the graph-building efficiency but would have involved a very difficult back-port because there had been a package reorganization since the release branch had been created; and the final ticket was an improvement to the matched catalog filtering that was determined to be non-critical.
+There were 61 tickets approved for back-porting as part of the Data Preview 0.2 and version 23 release process.
+If a ticket was rejected its label was removed, making it hard to determine counts for the number of tickets in that category.
+Three tickets were left in the requesting state in case they were needed, one is for a clean-up to the database schema that was discovered after we had finalized the processing; another was for an improvement to the graph-building efficiency but would have involved a very difficult back-port because there had been a package reorganization since the release branch had been created; and the final ticket was an improvement to the matched catalog filtering.
 
 Once all the necessary back-porting has been completed for a specific step, the release manager would be instructed to start the process of creating a new patch release of the Science Pipelines.
 During DP0.2 we made two additional formal releases of the version 23 software: v23.0.1 and v23.0.2.
