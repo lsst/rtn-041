@@ -5,11 +5,17 @@
 
 % Local commands go here.
 
+%If you want glossaries
+%\input{aglossary.tex}
+%\makeglossaries
+
 \title{Data Preview 0.2 and Operations rehearsal for DRP.}
 
+% Optional subtitle
+% \setDocSubtitle{A subtitle}
+
 \author{%
-  William O'Mullane,
-  Fritz Mueller
+William O'Mullane
 }
 
 \setDocRef{RTN-041}
@@ -17,11 +23,11 @@
 
 \date{\vcsDate}
 
+% Optional: name of the document's curator
+% \setDocCurator{The Curator of this Document}
+
 \setDocAbstract{%
-DM delivered software to operations to perform processing of the DESC DC2 data as well as enhancements to the
-portal and Qserv for interaction with the results.  The release of this was called Data Preview 0.2 and the
-production of the data products and publication of them were carried out in an operational manner. This
-provides valuable insights for operational data releases.
+DM delivered software to operations to perform  processing of the DESC DC2 data as well as enhancements to the portal and Qserv for interaction with the results.  The release of this was called Data Preview 0.2 and the production of the data products and publication of them were carried out in an operational manner. This provides valuable insights for operational data releases. 
 }
 
 % Change history defined here.
@@ -29,27 +35,35 @@ provides valuable insights for operational data releases.
 % Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
 % See LPM-51 for version number policy.
 \setDocChangeRecord{%
-  \addtohist{1}{2022-08-03}{Unreleased.}{William O'Mullane}
-  \addtohist{1}{2022-09-08}{Added Qserv section.}{Fritz Mueller}
+  \addtohist{1}{YYYY-MM-DD}{Unreleased.}{William O'Mullane}
 }
+
 
 \begin{document}
 
 % Create the title page.
 \maketitle
+% Frequently for a technote we do not want a title page  uncomment this to remove the title page and changelog.
+% use \mkshorttitle to remove the extra pages
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ADD CONTENT HERE
+% You can also use the \input command to include several content files.
 
 \appendix
-
-\section{References}\label{sec:bib}
+% Include all the relevant bib files.
+% https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
+\section{References} \label{sec:bib}
 \renewcommand{\refname}{} % Suppress default Bibliography section
 \bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
 
-\section{Acronyms}\label{sec:acronyms}
+% Make sure lsst-texmf/bin/generateAcronyms.py is in your path
+\section{Acronyms} \label{sec:acronyms}
 \input{acronyms.tex}
+% If you want glossary uncomment below -- comment out the two lines above
+%\printglossaries
+
+
+
+
 
 \end{document}
