@@ -61,8 +61,9 @@ Notable issues which came up during the production were summarized as follows.
 \begin{itemize}
 
   \item
-  Large numbers of simultaneous assembleCoadd (= image coaddition) jobs led to ``too many request'' errors reading from the object store (\jira{PREOPS-1034}) and revealed that data caching was insufficient (\jira{DM-33597}).
-  The rate spike was because the coaddition was done in small chunks and data reading happened for each chunk and each input warp.
+  Large numbers of simultaneous assembleCoadd (= image coaddition) jobs led to ``too many request'' errors reading from the object store (\jira{PREOPS-1034}) and revealed that data caching was insufficient.
+  The caching configuration in the butler repo was changed so not to expire anything in coaddition.
+  Algorithmically, the rate spike was because the coaddition was done in small chunks and data reading happened for each chunk and each input warp.
   This also led to ``hidden'' errors in the coadds, where coadd images were reported ok but actually had problems (\jira{DM-33786}).
   More details are discussed in Sect. \ref{sec:qa}).
   The first 7 step3 workflows needed to be redone due to this problem.
