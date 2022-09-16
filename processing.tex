@@ -61,13 +61,14 @@ Notable issues which came up during the production were summarized as follows.
 \begin{itemize}
 
   \item
-  Large numbers of simultaneous assembleCoadd (= image coaddition) jobs led to ``too many request'' errors reading from the object store (\jira{PREOPS-1034}) and revealed that data caching was insufficient.
-  The caching configuration in the butler repo was changed so not to expire anything in coaddition.
+  Large numbers of simultaneous assembleCoadd (= image coaddition) jobs led to ``too many request'' errors reading from the object store (\jira{PREOPS-1034}).
   Algorithmically, the rate spike was because the coaddition was done in small chunks and data reading happened for each chunk and each input warp.
-  This also led to ``hidden'' errors in the coadds, where coadd images were reported ok but actually had problems (\jira{DM-33786}).
-  More details are discussed in Sect. \ref{sec:qa}).
+  This could be alleviated by caching input files instead of requesting them from the object store each time.
+  The caching configuration in the butler repo was changed so not to expire anything in coaddition.
   The first 7 step3 workflows needed to be redone due to this problem.
-  The initial fix for this caching issue was too aggressive and led to out-of-disk-space errors for a couple of large faro tasks (matchCatalogsPatchMultiBand and matchCatalogsTract), but subsequently caching was better optimized to be sufficient for coadds, but not so much to cause disk space problems for the faro tasks.
+  This also led to the investigation of the ``hidden'' errors in the coadds, where coadd images were reported ok but actually had problems (\jira{DM-33786}).
+  More details are discussed in Sect. \ref{sec:qa}).
+  Later we found out that the initial fix of the caching was too aggressive and led to out-of-disk-space errors for a couple of large faro tasks (matchCatalogsPatchMultiBand and matchCatalogsTract), but subsequently caching was better optimized to be sufficient for coadds, but not so much to cause disk space problems for the faro tasks.
 
   \item
   Long-running forcedPhotCoadd jobs were failing/re-attempting at a much higher rate than before, caused by a change in the PanDA pilot version, which reset the job heartbeat timeout limit back to its default of 2 hours, whereas it had been set to 20 hours previously.
