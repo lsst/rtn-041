@@ -113,6 +113,7 @@ Notable issues which came up during the production were summarized as follows.
   \item
   We encountered a very slow start to jobs running on the PanDA system due to the large number of jobs per task ($>$100,000) in the first step5 workflow.
   This was solved by reducing the maximum number of jobs per task from the default value of 70,000 down to 30,000, so that a single large task was divided into smaller ``chunks'' (each with $<$30,000 jobs) that ran much more efficiently in the PanDA system.
+We do need an  iDDS server with more resources.
 
 \end{itemize} %step5
 
