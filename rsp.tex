@@ -1,6 +1,11 @@
-\section{Rubin Science Platform (including Qserv) for DP0.2} \label{sec:rsp}
+\section{Rubin Science Platform (including Qserv) for DP0.2} \label{sec:rspqserv}
 
-During Data Preview 0.1 (June 2021) we deployed the Rubin Science Platform and high-scalability database Qserv on our Interim Data Facility in Google Cloud to 300 early users (about 300 Data Preview delegates) as well as project staff. The initial set of services included catalog query support through all three aspects (portal, VO API, notebook). The system has remained in production ever since servicing users and giving us a chance to settle on core operational processes, such as the cadence of updates. In fact servicing our early access community on the IDF was one of the major reasons in our adoption of the so called "hybrid model" for operations, where the US DAC consists of an on-premises data center at SLAC (USDF) backing a cloud-based RSP deployment on Google Cloud (Cloud DF).
+During Data Preview 0.1 (June 2021) we deployed the Rubin Science Platform and high-scalability database Qserv on our Interim Data Facility in Google Cloud to 300 early users (about 300 Data Preview delegates) as well as project staff.
+The initial set of services included catalog query support through all three aspects (Portal, VO API, Notebook), as well as Butler (data access middleware) access to image data in the Notebook Aspect.
+The system has remained in production ever since servicing users and giving us a chance to settle on core operational processes, such as the cadence of updates.
+In fact servicing our early access community on the IDF was one of the major reasons for our adoption of the so called "hybrid model" for operations, where the US DAC consists of an on-premises data center at SLAC (USDF) backing a cloud-based RSP deployment on Google Cloud (Cloud DF).
+
+\subsection{RSP}\label{sec:rsp}
 
 For DP0.2, the goals were to extend the DP0.1 deployment in the following ways:
 
