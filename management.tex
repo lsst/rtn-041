@@ -1,0 +1,91 @@
+\section{Management and communication} \label{sec:management}
+
+Here we cover the management structures in place for DP0.2 this includes the groups and meetings like the change control for the pipeline version.
+
+\subsection{Oversight}
+The main departments involved were Data Production and System Performance.
+
+
+\subsection{Data Production}
+The Data Production Leadership Team (DPLT) consisted of representatives from all the teams involved in the data preview process as well as the data facilities.
+The DPLT met fortnightly to discuss any issues and minutes were recorded on Confluence.
+
+The membership of the DPLT was:
+
+\begin{itemize}
+\item William O'Mullane
+\item Bob Blum (non member)
+\item Leanne Guy (non member)
+\item Frossie Economou
+\item Tim Jenness
+\item Yusra AlSayyad
+\item Hsin-Fang Chiang
+\item Michelle Butler (NCSA)
+\item Richard Dubois (USDF)
+\item George Beckett (UKDF)
+\item Fabio Hernandez (FrDF)
+\end{itemize}
+
+This encompasses practically the entire operations DPLT as depicted in \figref{fig:DpOrg}
+
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{DpOrg}
+\caption{Data Production Leadership in operations - most of which was involved in DP0.2. \label{fig:DpOrg}}
+\end{figure}
+
+\subsection{Coordination}
+
+During the data preview 0.2 process there was a regular coordination meeting every two weeks (out of phase with the DPLT meeting) with minutes recorded on Confluence.
+This meeting was attended by all the people directly involved in the data preview process: management, the processing infrastructure team, the science platform team, the execution team, the pipelines team, the verification and validation team, and the community engagement team.
+
+This allowed the different teams to report on status and bring up any issues that needed to be addressed and made everyone aware of progress.
+Data Preview 0.1 had been released during this period and this allowed us to also include feedback from the Community Engagement Team as they interacted with the existing delegates and prepared updated tutorials for DP0.2.
+
+Data Facility representatives were present at this meeting even though all the processing was being done on the Interim Data Facility at Google \citep{2021arXiv211115030O}.
+
+\subsection{Work Management}
+
+We used Jira to track work related to the Data Preview.
+Epics and milestones were created in the \texttt{PREOPS} Jira Project.
+Story tickets were then attached to each epic but in order to properly integrate the work into existing Data Management processes, any tickets that would result in code changes in pipelines software or middleware packages were created in the Data Management Jira project.
+
+The status of the epics and how they related to the relevant milestones was monitored as part of the weekly coordination or DPLT meetings.
+
+\subsection{Change Control}
+
+Data Preview 0.2 used v23.0.x of the LSST Science Pipelines Software and that was derived from a weekly release from September 2021 (\texttt{w.2022.40}).
+We decided to group processing into distinct ``steps'' that allowed updates to the software used in later stages of processing to be worked on whilst earlier steps were executing.
+
+We continued to want to use the v23 release for all data processing and that required that we had a process to determine which patches would need to be back-ported to the release branch as needed before each step could begin.
+
+The Data Management Change Control Board (DMCCB) and DPLT delegated authority to a new Data Release Steering Committee that had the following membership:
+
+\begin{itemize}
+\item Yusra AlSayyad, representing the pipelines team.
+\item Leanne Guy and Colin Slater, representing the verification and validation team.
+\item Hsin-Fang Chiang, representing the execution team.
+\item Tim Jenness, representing the data processing architecture team.
+\end{itemize}
+
+The Board met weekly on Tuesday at 8:30am Pacific Time and also had a Slack channel to discuss any issues that would come up between meetings.
+Minutes for the meetings were recorded on Confluence.
+
+The process for deciding on a back-port is as follows:
+
+\begin{enumerate}
+
+\item A request is made that a ticket should be applied to the release branch by applying a \texttt{backport-v23} tag to the Jira ticket.
+\item The board would then discuss the relative merits of the back-port and if approved a \texttt{backport-approved} label would be added.
+\item The work on the back-port would then be scheduled by the relevant T/CAM following instructions in the developer guide.\footnote{\url{https://developer.lsst.io/work/backports.html}}
+\item Once the code is on the \texttt{v23.0.x} branch a \texttt{backport-done} label would be applied.
+
+\end{enumerate}
+
+A Jira query was constructed to find all the tickets and track their porting status.
+There were 61 tickets approved for back-porting as part of the Data Preview 0.2 and version 23 release process.
+If a ticket was rejected its label was removed, making it hard to determine counts for the number of tickets in that category.
+Three tickets were left in the requesting state in case they were needed, one is for a clean-up to the database schema that was discovered after we had finalized the processing; another was for an improvement to the graph-building efficiency but would have involved a very difficult back-port because there had been a package reorganization since the release branch had been created; and the final ticket was an improvement to the matched catalog filtering.
+
+Once all the necessary back-porting has been completed for a specific step, the release manager would be instructed to start the process of creating a new patch release of the Science Pipelines.
+During DP0.2 we made two additional formal releases of the version 23 software: v23.0.1 and v23.0.2.
+This allowed us to state which release was used for each step, although we ensured that changes in later patch releases would not affect the processing from steps that were already completed using older patch releases.
