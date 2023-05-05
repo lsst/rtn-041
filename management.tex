@@ -3,19 +3,17 @@
 Here we cover the management structures in place for DP0.2 this includes the groups and meetings like the change control for the pipeline version.
 
 \subsection{Oversight}
-The main departments involved were Data Production and System Performance.
-
+Two Operations departments involved were the production of Data Preview 0.2; Data Production and System Performance.
+Members of the leadership teams of each of these departments met fortnightly to discuss the progress of Data Preview 0.2. 
 
 \subsection{Data Production}
 The Data Production Leadership Team (DPLT) consisted of representatives from all the teams involved in the data preview process as well as the data facilities.
 The DPLT met fortnightly to discuss any issues and minutes were recorded on Confluence.
 
 The membership of the DPLT was:
-
 \begin{itemize}
 \item William O'Mullane
 \item Bob Blum (non member)
-\item Leanne Guy (non member)
 \item Frossie Economou
 \item Tim Jenness
 \item Yusra AlSayyad
@@ -26,20 +24,41 @@ The membership of the DPLT was:
 \item Fabio Hernandez (FrDF)
 \end{itemize}
 
-This encompasses practically the entire operations DPLT as depicted in \figref{fig:DpOrg}
+This encompasses practically the entire operations DPLT as depicted in \figref{fig:DpOrg}. 
+The AD of System Performance (Leanne Guy) also attended the DPLT meetings during the DP0.2 production period. 
 
 \begin{figure}
 \includegraphics[width=1.0\textwidth]{DpOrg}
 \caption{Data Production Leadership in operations - most of which was involved in DP0.2. \label{fig:DpOrg}}
 \end{figure}
 
+\subsection{System Performance}
+The Rubin Observatory System Performance department is responsible for ensuring that the LSST as a whole is proceeding with the efficiency and fidelity needed to achieve its science requirements at the end of the 10-year survey. 
+Aspects of this charge that were exercised extensively as part of DP0.2 were a) QA and performance characterization analyses of the LSST data products by the Verification and Validation team and b) enabling the community to access and analyze the data and publish results by the Community Science team.
+
+Figure \ref{fig:RPFOrg} show the organization chart of the System Performance department. 
+Only the Verification and Validation, and Community Science teams were directly involved in Data Preview 0.2
+\begin{figure}
+\includegraphics[width=1.0\textwidth]{RPFOrg}
+\caption{System Performance Leadership in Operations.  \label{fig:RPFOrg}}
+\end{figure}
+
+Members of the System Performance Leadership team (SPLT) who participated in Data Preview 0.2 was:
+\begin{itemize}
+\item Leanne Guy (System Performance Associate Director (AD))
+\item Colin Slater (Lead Verification and Validation Scientist)
+\item Melissa Graham (Lead Community Scientist)
+\end{itemize}
+The SPLT meets every fortnight to review milestone and work progress. 
+
 \subsection{Coordination}
 
-During the data preview 0.2 process there was a regular coordination meeting every two weeks (out of phase with the DPLT meeting) with minutes recorded on Confluence.
-This meeting was attended by all the people directly involved in the data preview process: management, the processing infrastructure team, the science platform team, the execution team, the pipelines team, the verification and validation team, and the community engagement team.
+During the production of Data Preview 0.2 regular coordination meetings were held every two weeks (out of phase with the DPLT meeting) with minutes recorded on Confluence at \href{https://confluence.lsstcorp.org/display/LSSTOps/Data+Preview+Coordination+Meeting+Notes}{Data Preview Coordination Meeting Notes}.
+
+This meeting was attended by all the people directly involved in the data preview process: management, the processing infrastructure team, the science platform team, the execution team, the pipelines team, the verification and validation team, and the community science team.
 
 This allowed the different teams to report on status and bring up any issues that needed to be addressed and made everyone aware of progress.
-Data Preview 0.1 had been released during this period and this allowed us to also include feedback from the Community Engagement Team as they interacted with the existing delegates and prepared updated tutorials for DP0.2.
+Data Preview 0.1was released during this period and this allowed us to also include feedback from the Community Science Team as they interacted with the existing delegates and prepared updated tutorials for DP0.2.
 
 Data Facility representatives were present at this meeting even though all the processing was being done on the Interim Data Facility at Google \citep{2021arXiv211115030O}.
 
@@ -47,9 +66,11 @@ Data Facility representatives were present at this meeting even though all the p
 
 We used Jira to track work related to the Data Preview.
 Epics and milestones were created in the \texttt{PREOPS} Jira Project.
-Story tickets were then attached to each epic but in order to properly integrate the work into existing Data Management processes, any tickets that would result in code changes in pipelines software or middleware packages were created in the Data Management Jira project.
+Story tickets were then attached to each epic 
+For Data Management, to properly integrate the work into existing Data Management processes, any tickets that would result in code changes in pipelines software or middleware packages were created in the Data Management Jira project.
+For System Performance, all work was carried out on tickets in the  \texttt{PREOPS} Jira Project.
 
-The status of the epics and how they related to the relevant milestones was monitored as part of the weekly coordination or DPLT meetings.
+The status of the epics and how they related to the relevant milestones was monitored as part of the weekly coordination, DPLT or SPLT meetings.
 
 \subsection{Change Control}
 
@@ -58,17 +79,17 @@ We decided to group processing into distinct ``steps'' that allowed updates to t
 
 We continued to want to use the v23 release for all data processing and that required that we had a process to determine which patches would need to be back-ported to the release branch as needed before each step could begin.
 
-The Data Management Change Control Board (DMCCB) and DPLT delegated authority to a new Data Release Steering Committee that had the following membership:
+The Data Management Change Control Board (DMCCB), DPLT and SPLT  delegated authority to a new Data Release Steering Committee that had the following membership:
 
 \begin{itemize}
 \item Yusra AlSayyad, representing the pipelines team.
-\item Leanne Guy and Colin Slater, representing the verification and validation team.
+\item Colin Slater, representing the verification and validation team.
 \item Hsin-Fang Chiang, representing the execution team.
 \item Tim Jenness, representing the data processing architecture team.
 \end{itemize}
 
 The Board met weekly on Tuesday at 8:30am Pacific Time and also had a Slack channel to discuss any issues that would come up between meetings.
-Minutes for the meetings were recorded on Confluence.
+Minutes for the meetings were recorded on \href{https://confluence.lsstcorp.org/display/LSSTOps/Data+Production+Meetings}{Confluence}.
 
 The process for deciding on a back-port is as follows:
 
